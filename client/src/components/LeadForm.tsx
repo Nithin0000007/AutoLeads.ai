@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { CheckCircle, Loader2, ArrowRight } from 'lucide-react';
-import { submitLead } from '../lib/supabase';
 
 const businessTypes = [
   'Clinic / Healthcare',
@@ -28,18 +27,34 @@ export default function LeadForm({ source, onSuccess, compact = false }: LeadFor
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
   const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.name || !form.email) return;
-    setStatus('loading');
-    const result = await submitLead({ ...form, source });
-    if (result.success) {
+  e.preventDefault();
+
+  if (!form.name || !form.email) return;
+
+  setStatus('loading');
+
+  try {
+    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/leads`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ ...form, source }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
       setStatus('success');
       onSuccess();
     } else {
-      setStatus('error');
-      setErrorMsg(result.error || 'Something went wrong. Please try again.');
+      throw new Error(data.message || 'Something went wrong');
     }
-  };
+  } catch (error: Error | unknown) {
+    setStatus('error');
+    setErrorMsg(error instanceof Error ? error.message : 'Something went wrong. Please try again.');
+  }
+};
 
   if (status === 'success') {
     return (
