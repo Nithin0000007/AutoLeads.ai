@@ -1,23 +1,7 @@
 import { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import LogoBar from './components/LogoBar';
-import Testimonials from './components/Testimonials';
-import ProblemSolution from './components/ProblemSolution';
-import HowItWorks from './components/HowItWorks';
-import WhatYouGet from './components/WhatYouGet';
-import CaseStudies from './components/CaseStudies';
-import Comparison from './components/Comparison';
-import BookCall from './components/BookCall';
-import FAQ from './components/FAQ';
-import TrustSection from './components/TrustSection';
-import BookingSection from './components/BookingSection';
-import FinalCTA from './components/FinalCTA';
-// import FloatingElements from './components/FloatingElements';
-import ExitIntentPopup from './components/ExitIntentPopup';
+import Home from './pages/home/Home';
 import BookingModal from './components/BookingModal';
-import Footer from './components/Footer';
-
+import ExitIntentPopup from './components/ExitIntentPopup';
 export default function App() {
   const [showModal, setShowModal] = useState(false);
   const [showExitPopup, setShowExitPopup] = useState(false);
@@ -30,6 +14,7 @@ export default function App() {
         setTimeout(() => setShowExitPopup(true), 500);
       }
     };
+
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
   }, [exitShown, showModal]);
@@ -38,25 +23,17 @@ export default function App() {
   const closeModal = () => setShowModal(false);
 
   return (
-    <div className="bg-[#050d1a] min-h-screen">
-      <Navbar onBookDemo={openModal} />
-      <Hero onBookDemo={openModal} />
-      <LogoBar />
-      <Testimonials />
-      <ProblemSolution />
-      <HowItWorks />
-      <WhatYouGet />
-      <CaseStudies />
-      <Comparison />
-      <BookCall onBookDemo={openModal} />
-      <FAQ />
-      <TrustSection />
-      <BookingSection />
-      <FinalCTA onBookDemo={openModal} />
-      <Footer />
-      {/* <FloatingElements onBookDemo={openModal} /> */}
+    <>
+      <Home onBookDemo={openModal} />
+
       {showModal && <BookingModal onClose={closeModal} />}
-      {showExitPopup && <ExitIntentPopup onClose={() => setShowExitPopup(false)} onBookDemo={openModal} />}
-    </div>
+
+      {showExitPopup && (
+        <ExitIntentPopup
+          onClose={() => setShowExitPopup(false)}
+          onBookDemo={openModal}
+        />
+      )}
+    </>
   );
 }

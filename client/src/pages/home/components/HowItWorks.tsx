@@ -1,5 +1,5 @@
 import { Globe, MessageSquare, Smartphone, BarChart3, ArrowDown } from 'lucide-react';
-import { useInView } from '../hooks/useIntersectionObserver';
+import { useInView } from '../../../hooks/useIntersectionObserver';
 
 const steps = [
   {

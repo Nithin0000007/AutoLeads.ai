@@ -1,5 +1,5 @@
 import { Shield, Zap, Globe, Lock, Award, HeartHandshake } from 'lucide-react';
-import { useInView } from '../hooks/useIntersectionObserver';
+import { useInView } from '../../../hooks/useIntersectionObserver';
 
 const trustBadges = [
   { icon: Shield, label: 'GDPR Compliant', desc: 'Enterprise-grade data security' },

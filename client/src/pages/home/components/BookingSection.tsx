@@ -1,5 +1,5 @@
 import { Calendar, Clock, Shield, Zap } from 'lucide-react';
-import { useInView } from '../hooks/useIntersectionObserver';
+import { useInView } from '../../../hooks/useIntersectionObserver';
 
 const CAL_USERNAME = import.meta.env.VITE_CAL_USERNAME;
 const CAL_EVENT = import.meta.env.VITE_CAL_EVENT;

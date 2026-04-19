@@ -1,5 +1,5 @@
 import { Globe, Bot, MessageCircle, LayoutDashboard, ArrowRight, Check } from 'lucide-react';
-import { useInView } from '../hooks/useIntersectionObserver';
+import { useInView } from '../../../hooks/useIntersectionObserver';
 
 const deliverables = [
   {

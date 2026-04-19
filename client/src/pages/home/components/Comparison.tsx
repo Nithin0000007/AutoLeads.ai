@@ -1,5 +1,5 @@
 import { XCircle, CheckCircle2 } from 'lucide-react';
-import { useInView } from '../hooks/useIntersectionObserver';
+import { useInView } from '../../../hooks/useIntersectionObserver';
 
 const rows = [
   { feature: 'Response time to new leads', manual: '2–24 hours', automated: 'Under 60 seconds' },
