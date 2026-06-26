@@ -42,7 +42,7 @@ export default function FloatingElements({ onBookDemo }: FloatingElementsProps) 
         </a>
       </div>
 
-      <div
+      {/* <div
         className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-40 transition-all duration-500 ${
           showSticky ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
@@ -59,7 +59,7 @@ export default function FloatingElements({ onBookDemo }: FloatingElementsProps) 
             Only 2 spots left this month · Takes 30 seconds
           </p>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { XCircle, CheckCircle2, ArrowRight } from 'lucide-react';
-import { useInView } from '../hooks/useIntersectionObserver';
+import { useInView } from '../../../hooks/useIntersectionObserver';
 
 const problems = [
   { icon: '😴', text: 'Leads arrive at night — no one responds until morning. Deal is gone.' },

@@ -1,5 +1,5 @@
 import { TrendingUp, Clock, Users, ArrowRight } from 'lucide-react';
-import { useInView } from '../hooks/useIntersectionObserver';
+import { useInView } from '../../../hooks/useIntersectionObserver';
 
 const cases = [
   {

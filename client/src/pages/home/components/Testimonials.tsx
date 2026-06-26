@@ -1,5 +1,5 @@
 import { Star, TrendingUp } from 'lucide-react';
-import { useInView } from '../hooks/useIntersectionObserver';
+import { useInView } from '../../../hooks/useIntersectionObserver';
 
 const testimonials = [
   {
